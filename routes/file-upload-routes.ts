@@ -7,6 +7,7 @@ const router = Router();
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
+// POST: /api/upload/import - import excel file to mongo db
 router.post(
   "/import",
   upload.single("file"),

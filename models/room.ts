@@ -15,8 +15,6 @@ export interface IRoom extends Document {
     name: string;
     link: string;
   };
-  createdAt: Date; //managed by mongoose timestamps
-  updatedAt: Date; //managed by mongoose timestamps
   freeSpace: number; // Virtual property
 }
 

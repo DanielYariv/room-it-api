@@ -30,7 +30,7 @@ const createRoom = async (req: Request, res: Response) => {
   const data = req.body;
 
   try {
-    const newRoom = new Room(data);
+    const newRoom = await Room.create(data);
     await newRoom.save();
     res.status(201).json(newRoom);
   } catch (err) {

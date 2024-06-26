@@ -31,7 +31,6 @@ const createRoom = async (req: Request, res: Response) => {
 
   try {
     const newRoom = await Room.create(data);
-    await newRoom.save();
     res.status(201).json(newRoom);
   } catch (err) {
     handleError(res, err);

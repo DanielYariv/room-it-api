@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { validateId } from "../middleware/validators";
 import roomController from "../controllers/roomController";
-import userController from "../controllers/userController";
+import employeeController from "../controllers/employeeController";
 
 const router = Router();
 
@@ -24,14 +24,18 @@ router.delete("/:id", validateId, roomController.deleteRoom);
 
 // User within rooms routes
 
-//POST /api/room/:id/users - add user to a room
-router.post("/:id/users", validateId, userController.addUser);
+//POST /api/room/:id/employees - add user to a room
+router.post("/:id/employees", validateId, employeeController.addEmployee);
 
-// DELETE /api/room/:id/users/:username - Remove user from a room
-router.delete("/:id/users/:username", validateId, userController.deleteUser);
+// DELETE /api/room/:id/employee/:username - Remove user from a room
+router.delete(
+  "/:id/employee/:username",
+  validateId,
+  employeeController.deleteEmployee
+);
 
-// PATCH /api/room/:id/users - Update users in a room
-router.patch("/:id/users", validateId, userController.updateUsers);
+// PATCH /api/room/:id/employees - Update employees in a room
+router.patch("/:id/employees", validateId, employeeController.updateEmployee);
 
 //  GET /api/export - Export data to Excel (Functionality to be implemented)
 // router.get("/export", async (req: Request, res: Response) => {
